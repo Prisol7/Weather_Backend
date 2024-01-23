@@ -33,7 +33,11 @@ app.get('/initial/location', async (req, res) => {
 	res.send(data)
 })
 
-//83b47b45bae77d12060c2f48223adcdf
-app.listen(port, () => {
-	console.log(`Server set up on port ${port}`)
-})
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
+
+
